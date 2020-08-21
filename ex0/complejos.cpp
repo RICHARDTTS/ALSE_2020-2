@@ -7,6 +7,13 @@ struct complex{
   double im;
 };
 
+complex operator-(complex x, complex y){
+  complex w;
+  w.re = x.re - y.re;
+  w.im = x.im - y.im;
+  return w;
+}
+
 complex operator+(complex p, complex q){
   complex r;
   r.re = p.re + q.re;
@@ -16,7 +23,7 @@ complex operator+(complex p, complex q){
 
 
 ostream& operator<<(ostream& out, complex m){
-  out << m.re << (m.im > 0 ? " + ":"" ) << m.im << "i " ;
+  out << m.re << (m.im >= 0 ? " + ":" " ) << m.im << "i " ;
 }
 
 
@@ -33,10 +40,11 @@ int main(){
   
   complex d =  c + b;
 
+  d = c - a;
   cout << c << endl;
 
   cout << d << endl;
 
-  return 0;
+return 0;
 }
 
