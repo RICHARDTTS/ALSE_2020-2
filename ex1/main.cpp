@@ -15,9 +15,9 @@ int main(){
   complex d =  c + b;
 
   d = c - a;
-//  cout << c << endl;
+  cout << c << endl;
 
-//  cout << d << endl;
+  cout << d << endl;
 
 return 0;
 }

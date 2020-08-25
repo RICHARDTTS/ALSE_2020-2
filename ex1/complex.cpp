@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 #include "complex.h"
 
 using namespace std;
@@ -20,4 +21,8 @@ complex complex::operator+( complex q){
 complex::complex(double r, double i){
   re = r;
   im = i;
+}
+
+std::ostream& operator<<(std::ostream& out, complex a){
+  out << a.re << (a.im >=0 ? " + ":" - ") << abs(a.im) << "i";
 }
