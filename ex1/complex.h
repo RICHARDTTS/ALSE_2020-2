@@ -8,6 +8,7 @@ class complex{
 
 public:
   complex(double r =0. , double i = 0.);
+  ~complex();
   complex operator+(complex b);
   complex operator-(complex b);
   complex operator*(complex b);

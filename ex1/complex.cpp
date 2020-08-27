@@ -23,6 +23,10 @@ complex::complex(double r, double i){
   im = i;
 }
 
+complex::~complex(){
+
+}
+
 std::ostream& operator<<(std::ostream& out, complex a){
   out << a.re << (a.im >=0 ? " + ":" - ") << abs(a.im) << "i";
 }
