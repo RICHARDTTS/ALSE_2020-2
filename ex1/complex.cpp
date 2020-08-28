@@ -30,3 +30,43 @@ complex::~complex(){
 std::ostream& operator<<(std::ostream& out, complex a){
   out << a.re << (a.im >=0 ? " + ":" - ") << abs(a.im) << "i";
 }
+
+bool complex::operator<(complex &a){
+  if (angle() == a.angle() )
+    return (magnitude() < a.magnitude() );
+  else
+    return angle() < a.angle();
+}
+
+bool complex::operator==(complex &a){
+  return (re == a.re && im == a.im);
+}
+
+double complex::angle(){
+  return atan2(im, re) + M_PI;
+}
+
+double complex::magnitude(){
+  return sqrt(re*re + im*im);
+}
+
+void complex::set(double a, double b){
+  re = a;
+  im = b;
+}
+
+void complex::setRe(double a){
+  re = a;
+}
+
+void complex::setIm(double a){
+  im = a;
+}
+
+double complex::getRe(){
+  return re;
+}
+
+double complex::getIm(){
+  return im;
+}

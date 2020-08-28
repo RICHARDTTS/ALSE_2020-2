@@ -13,8 +13,13 @@ public:
   complex operator-(complex b);
   complex operator*(complex b);
   complex conjugate(complex a);
-  bool operator==(complex b);
-  bool operator<(complex a);
+  bool operator==(complex& b);
+  bool operator<(complex& a);
+  void set( double a, double b);
+  void setRe( double a);
+  double getRe();
+  void setIm( double a);
+  double getIm();
   double angle();
   double magnitude();
   
