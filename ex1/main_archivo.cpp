@@ -10,12 +10,15 @@ int main(int argc, char* argv[]){
 //    cout << argv[i] << endl;
 
   string filename = "";
-  if( argc > 1 ) 
+  string outputfile = "";
+  if( argc > 1 && argc < 4 ){
     filename = argv[1];
-  else{
-    cout << "Por favor indicar la ruta al archivo. Gracias." << endl;
+    outputfile = argv[2];
+  }else{
+    cout << "Por favor indicar la ruta al archivo de entrada y al de salida. Gracias." << endl;
     return 1;
   }
+
 // A partir de aquí voy a abrir el archivo para leer los datos
   cout << "Se abrirá el archivo " << filename << "para leer los complejos." << endl;
 
@@ -23,24 +26,32 @@ int main(int argc, char* argv[]){
   archivo.open( filename );
   double  a, b;
   a = b = 0.;
+  int num = 0;
 
+// Ahora uso un arreglo estático.
 
   complex obj[5];
 
   if( archivo.is_open() ){
     while( !archivo.eof() ){
        archivo >> a;
-       cout << a << "; ";
+//       cout << a << "; ";
        archivo >> b;
-       cout << b << endl;
-       obj[1].set(a, b);
+//       cout << b << endl;
+       obj[ num ].set(a, b);
+       if( num < 5) 
+         num++;
+       else
+         break;
     }
-  }   
-// Ahora con arrglos
+  }
+
+  archivo.close(); 
+
 
   double tmp1, tmp2;
   bool cambio;
-/*
+
   do{
     cambio = false;
     for (int i =0; i < 4; ++i ){
@@ -56,9 +67,12 @@ int main(int argc, char* argv[]){
       }
     }
   }while(cambio == true);
-  */
+
   for( int i = 0 ; i < 5; ++i )
     cout << obj[i] << endl;
+
+// Agregar aquí el codigo para guardarlos ordenados en el arvhivo de salida.
+
 
   return 0;
 }
