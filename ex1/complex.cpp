@@ -1,5 +1,6 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
+#include <limits>
 #include "complex.h"
 
 using namespace std;
@@ -23,19 +24,15 @@ complex::complex(double r, double i){
   im = i;
 }
 
-complex::~complex(){
-
-}
-
 std::ostream& operator<<(std::ostream& out, complex a){
   out << a.re << (a.im >=0 ? " + ":" - ") << abs(a.im) << "i";
 }
 
 bool complex::operator<(complex &a){
-  if (angle() == a.angle() )
-    return (magnitude() < a.magnitude() );
+  if ( angle() == a.angle() )
+    return (magnitude() < ( a.magnitude() + 2 * std::numeric_limits<double>::epsilon() ) );
   else
-    return angle() < a.angle();
+    return angle() < ( a.angle() + 2 * numeric_limits<double>::epsilon() );
 }
 
 bool complex::operator==(complex &a){

@@ -8,13 +8,13 @@ class complex{
 
 public:
   complex(double r =0. , double i = 0.);
-  ~complex();
   complex operator+(complex b);
   complex operator-(complex b);
   complex operator*(complex b);
   complex conjugate(complex a);
   bool operator==(complex& b);
   bool operator<(complex& a);
+//  bool operator>(complex& a);
   void set( double a, double b);
   void setRe( double a);
   double getRe();

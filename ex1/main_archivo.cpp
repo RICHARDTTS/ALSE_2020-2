@@ -10,17 +10,15 @@ int main(int argc, char* argv[]){
 //    cout << argv[i] << endl;
 
   string filename = "";
-  string outputfile = "";
-  if( argc > 1 && argc < 4 ){
+  if( argc > 1 && argc < 3 ){
     filename = argv[1];
-    outputfile = argv[2];
   }else{
-    cout << "Por favor indicar la ruta al archivo de entrada y al de salida. Gracias." << endl;
+    cout << "Por favor indicar la ruta al archivo de entrada. Gracias." << endl;
     return 1;
   }
 
 // A partir de aquí voy a abrir el archivo para leer los datos
-  cout << "Se abrirá el archivo " << filename << "para leer los complejos." << endl;
+  cout << "Se abrirá el archivo " << filename << " para leer los complejos." << endl;
 
   ifstream archivo;
   archivo.open( filename );
@@ -54,8 +52,9 @@ int main(int argc, char* argv[]){
 
   do{
     cambio = false;
-    for (int i =0; i < 4; ++i ){
+    for (int i = 0; i < 4; ++i ){
       if( obj[i] < obj[i+1] ){
+//	cout << obj[i] << endl;
       }else{
         tmp1 = obj[i].getRe();
         tmp2 = obj[i].getIm();
