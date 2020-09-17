@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/fig_geometricas.dir/main.cpp.o CMakeFiles/fig_geometricas.dir/Circulo.cpp.o CMakeFiles/fig_geometricas.dir/Triangulo.cpp.o CMakeFiles/fig_geometricas.dir/Cuadrado.cpp.o CMakeFiles/fig_geometricas.dir/Pentagono.cpp.o  -o fig_geometricas 

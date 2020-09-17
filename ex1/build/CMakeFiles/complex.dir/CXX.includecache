@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alseuser/Documents/ALSE_2020-2/ex1/complex.cpp
+iostream
+-
+cmath
+-
+limits
+-
+complex.h
+/home/alseuser/Documents/ALSE_2020-2/ex1/complex.h
+
+/home/alseuser/Documents/ALSE_2020-2/ex1/complex.h
+iostream
+-
+
+/home/alseuser/Documents/ALSE_2020-2/ex1/main.cpp
+iostream
+-
+complex.h
+/home/alseuser/Documents/ALSE_2020-2/ex1/complex.h
+

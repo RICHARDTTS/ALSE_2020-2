@@ -20,9 +20,14 @@ using namespace std;
  * @param y
  */
 Circulo::Circulo(float r, float x, float y ) {
-    _radio = r;
-    _xc = x;
-    _yc = y;
+    if ( r != 0. ) {
+        _radio = r;
+        _xc = x;
+        _yc = y;
+    }else{
+        cout << "No puede crear círculos de radio 0.";
+    }
+
 }
 
 /**
@@ -38,6 +43,16 @@ float Circulo::area() {
 float Circulo::perimetro() {
     return 2 * M_PI * _radio;
 }
+
+bool Circulo::intersectan(Circulo &c){
+    float dx, dy;
+    dx = _xc - c._xc;
+    dy = _yc - c._yc;
+    dx = sqrt(dx * dx + dy * dy);
+    //cout << dx << " : " << _radio + c._radio << endl;
+    return ( dx <= ( _radio + c._radio ) );
+}
+
 
 /**
  * @param stream
