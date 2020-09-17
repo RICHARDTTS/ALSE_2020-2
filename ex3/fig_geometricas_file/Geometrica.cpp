@@ -31,10 +31,10 @@ float Geometrica::perimetro() {
  * @param stream
  * @return ostream&
  */
-//ostream& operator<<(ostream& stream, Geometrica& g) {
-//    // cout << "llamada a operador" << endl ;
-//    return stream   ;
-//}
+ostream& operator<<(ostream& stream, Geometrica& g) {
+    cout << "llamada a operador" << endl ;
+    return stream   ;
+}
 
 Geometrica::Geometrica() {
 

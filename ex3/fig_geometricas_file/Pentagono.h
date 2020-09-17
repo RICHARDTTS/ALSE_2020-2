@@ -12,17 +12,17 @@
 class Pentagono: public Geometrica {
 public: 
 	
-/**
- * @param l
- * @param x
- * @param y
- */
-Pentagono(float l, float x, float y);
-Pentagono(string parametros);
+    /**
+     * @param l
+     * @param x
+     * @param y
+     */
+    Pentagono(float l, float x, float y);
+    Pentagono(string parametros);
 private: 
 	float _lado;
 	
-Pentagono();
+    Pentagono();
 };
 
 #endif //_PENTAGONO_H

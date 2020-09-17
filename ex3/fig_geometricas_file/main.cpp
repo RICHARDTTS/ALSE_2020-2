@@ -10,7 +10,7 @@ using namespace std;
 
 int main(int argc, char** argv){
     vector<Geometrica*> vFig;
-    Geometrica* pG = 0;
+    Geometrica* pG = NULL;
 
     if(argc != 2){
         cout << "El programa se usa así:" << endl;
@@ -30,8 +30,8 @@ int main(int argc, char** argv){
     size_t posicion = 0;
     if(archivo.is_open()){
         // Aquí va el codigo que se va a hacer para leer el archivo
-        getline(archivo, path);
-        while(!archivo.eof()){
+
+        while( getline(archivo, path) ){
             posicion = path.find(" ", posicion);
             cout << path << "-> " << posicion <<endl;
             tipo = atoi(path.substr(0, posicion).c_str());
@@ -52,10 +52,38 @@ int main(int argc, char** argv){
                 break;
             }
 			vFig.push_back( pG );
-            getline(archivo, path);
         }
         cout << vFig.size() << endl;
+        archivo.close();
     }
 
+    // Procesar el vector
+    for(int i = 0; i < vFig.size() ; ++i ){
+        cout << "El área es: " << vFig[i]->area() << endl;
+        cout << *(vFig[i]) << endl;
+    }
+
+    // NO olvidar destruir la memoria dinámica creada
+
+    for(int i = 0; i < vFig.size() ; ++i ){
+        delete vFig[i];
+    }
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

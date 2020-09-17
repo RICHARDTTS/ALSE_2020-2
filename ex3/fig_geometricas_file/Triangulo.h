@@ -12,22 +12,22 @@
 class Triangulo: public Geometrica {
 public: 
 	
-/**
- * @param b
- * @param h
- * @param x
- * @param y
- */
+    /**
+     * @param b
+     * @param h
+     * @param x
+     * @param y
+     */
 
-float area();
-float perimetro();
-Triangulo(float b, float h, float x = 0., float y = 0.);
-Triangulo(string parametros);
+    float area();
+    float perimetro();
+    Triangulo(float b, float h, float x = 0., float y = 0.);
+    Triangulo(string parametros);
 private:
 	float _base;
 	float _altura;
 	
-Triangulo();
+    Triangulo();
 };
 
 #endif //_TRIANGULO_H
