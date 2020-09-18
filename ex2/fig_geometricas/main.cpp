@@ -11,6 +11,11 @@ int main(){
     cout << a << endl;
     a.setRadio( 7. );
     cout << a << endl;
+
+    Circulo b(3., 10., 0.);
+    cout << b << endl;
+
+    cout << "Estos círculos " << ( a.intersectan(b) ? "si ": "no " ) << "instersectan" << endl;
 	
 	Cuadrado c( 9.5 );
 	cout << c << endl;

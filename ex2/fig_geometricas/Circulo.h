@@ -24,6 +24,8 @@ Circulo(float r, float x = 0.0, float y = 0.0);
 float area();
 	
 float perimetro();
+
+bool intersectan(Circulo& c);
 	
 /**
  * @param stream
@@ -37,10 +39,10 @@ float getX(){return _xc;}
 void setY(float y){_yc = y;};
 float getY(){return _yc;}
 
-private: 
-	float _radio;
-	float _xc;
-	float _yc;
+private:
+float _radio;
+float _xc;
+float _yc;
 	
 Circulo();
 };

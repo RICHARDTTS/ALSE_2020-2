@@ -17,9 +17,9 @@
  */
 Circulo::Circulo(float r, float x, float y) {
     _radio = r;
-    setX( x );
-    setY( y );
-    setTipo( circulo );
+    _xc = x ;
+    _yc = y ;
+    _idTipo =  circulo ;
 }
 
 Circulo::Circulo(string parametros){
@@ -29,13 +29,13 @@ Circulo::Circulo(string parametros){
     _radio = atof(parametros.substr(0,posicion).c_str());
     pos_ant =  posicion + 1;
     posicion = parametros.find(" ",pos_ant);
-    setX( atof(parametros.substr(0,posicion).c_str()) );
+    _xc = atof(parametros.substr(0,posicion).c_str());
     pos_ant =  posicion + 1;
     posicion = parametros.find(" ",pos_ant);
-    setY( atof(parametros.substr(0,posicion).c_str()) );
+    _yc = atof(parametros.substr(0,posicion).c_str());
     pos_ant =  posicion + 1;
     posicion = parametros.find(" ",pos_ant);
-    setAngulo( atof(parametros.substr(0,posicion).c_str()) );
+    _angulo = atof(parametros.substr(0,posicion).c_str());
     pos_ant =  posicion + 1;
 }
 
@@ -49,4 +49,9 @@ float Circulo::area(){
 
 float Circulo::perimetro(){
     return 2 * M_PI * _radio;
+}
+
+ostream& operator<<(ostream& stream, Circulo& c){
+   stream << "Yo soy un círculo" ;
+   return stream;
 }
