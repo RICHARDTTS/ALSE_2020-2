@@ -4,6 +4,7 @@
 
 
 #include "Termino.h"
+#include <iostream>
 //#define NULL __null;
 
 /**

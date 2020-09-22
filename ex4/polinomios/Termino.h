@@ -5,9 +5,6 @@
 
 #ifndef _TERMINO_H
 #define _TERMINO_H
-#include <iostream>
-
-using namespace std;
 
 class Termino {
   private:

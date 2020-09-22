@@ -88,11 +88,11 @@ bool Polinomio::ordenar() {
         while( ptr1->getSiguiente() != NULL ){
             ptr2 = ptr1->getSiguiente();
             if( ptr1->getP() < ptr2->getP() ){ // Es necesario intercambiar
-                cout << ptr1 << " " << ptr2 <<endl;
+                //cout << ptr1 << " " << ptr2 <<endl;
                 cambio = true;
                 ptr1->setSiguiente( ptr2->getSiguiente() );
                 ptr2->setSiguiente( ptr1 );
-                cout << ptr1 << " " << ptr2 <<endl;
+                //cout << ptr1 << " " << ptr2 <<endl;
                 if( _polCabeza == ptr1 ) {
                     _polCabeza = ptr2;
                 }else{
@@ -117,35 +117,26 @@ Polinomio& Polinomio::operator +(Polinomio& p) {
     this->ordenar();
     p.ordenar();
     Polinomio* res = new Polinomio(*this);
-    Polinomio* res1 = new Polinomio(p);
+    //Polinomio* res1 = new Polinomio(p);
     Termino* temp = res->_polCabeza;
-    Termino* temp1= res1->_polCabeza;
+    Termino* temp1= p._polCabeza;
 
    if(temp != NULL){
         float newCoeff = 0.;
         int newPow = 0;
 
-    while ( temp->getSiguiente() != NULL ){
-        if (temp->getP()==temp1->getP()){
-            newCoeff = temp->getC() + temp1->getC();
-            newPow = temp->getP();
-            temp->setCP( newCoeff, newPow );
+        while ( temp != NULL ){
+            if ( temp->getP() == temp1->getP() ){
+                newCoeff = temp->getC() + temp1->getC();
+                newPow = temp->getP();
+                temp->setCP( newCoeff, newPow );
+                //temp = temp->getSiguiente();
+                temp1= temp1->getSiguiente();
+            }
             temp = temp->getSiguiente();
-            temp1= temp1->getSiguiente();
-        }
-        else{
-            newCoeff = temp->getC();
-            newPow = temp->getP();
-            temp->setCP( newCoeff, newPow );
-            temp = temp->getSiguiente();
-        }
-
-        }
+       }
    }
-
-
-
-    return *res;
+   return *res;
 }
 
 /**
@@ -156,32 +147,26 @@ Polinomio& Polinomio::operator -(Polinomio& p) {
     this->ordenar();
     p.ordenar();
     Polinomio* res = new Polinomio(*this);
-    Polinomio* res1 = new Polinomio(p);
+    //Polinomio* res1 = new Polinomio(p);
     Termino* temp = res->_polCabeza;
-    Termino* temp1= res1->_polCabeza;
+    Termino* temp1= p._polCabeza;
 
    if(temp != NULL){
         float newCoeff = 0.;
         int newPow = 0;
 
-    while ( temp->getSiguiente() != NULL ){
-        if (temp->getP()==temp1->getP()){
-            newCoeff = temp->getC() - temp1->getC();
-            newPow = temp->getP();
-            temp->setCP( newCoeff, newPow );
+        while ( temp != NULL ){
+            if (temp->getP()==temp1->getP()){
+                newCoeff = temp->getC() - temp1->getC();
+                newPow = temp->getP();
+                temp->setCP( newCoeff, newPow );
+                //temp = temp->getSiguiente();
+                temp1= temp1->getSiguiente();
+            }
             temp = temp->getSiguiente();
-            temp1= temp1->getSiguiente();
-        }
-        else{
-            newCoeff = temp->getC();
-            newPow = temp->getP();
-            temp->setCP( newCoeff, newPow );
-            temp = temp->getSiguiente();
-        }
-
-        }
+       }
    }
-    return *res;
+   return *res;
 }
 
 /**
@@ -309,12 +294,14 @@ string  Polinomio::getString(){
     stringstream stream;
     Termino* temp = _polCabeza;
     while( temp != NULL ){
-        if(temp->getC() > 0) stream << "+";
-        stream << temp->getC();
-        if(temp->getP() > 0 ){
-            stream << _variable;
-            if( temp->getP() > 1 )
-                stream << "^" << temp->getP();
+        if( temp->getC() != 0 ) {
+            if(temp->getC() > 0) stream << "+";
+            stream << temp->getC();
+            if(temp->getP() > 0 ){
+                stream << _variable;
+                if( temp->getP() > 1 )
+                    stream << "^" << temp->getP();
+            }
         }
         temp = temp->getSiguiente();
     }
