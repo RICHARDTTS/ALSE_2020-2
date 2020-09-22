@@ -1,23 +1,9 @@
-/**
- * Project Untitled
- */
-
-
 #include "Termino.h"
-#include <iostream>
-//#define NULL __null;
 
-/**
- * Termino implementation
- */
+
 Termino::Termino(float c, int p){
-    _coeficiente = c;
     _potencia = p;
-    _siguiente = NULL ;
-}
-
-Termino::Termino(Termino& t){
-    _coeficiente = t._coeficiente;
-    _potencia = t._potencia;
+    _coeficiente = c;
     _siguiente = NULL;
+    //std::cout << "Constructor Termino con (" << _coeficiente << ", " << _potencia << ")" << std::endl;
 }
